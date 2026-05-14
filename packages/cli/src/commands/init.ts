@@ -18,6 +18,12 @@ export async function initCommand(
 ): Promise<void> {
   // ── Step 1: App name ──────────────────────────────────────────────────────
   let appName = appNameArg;
+
+  if (appName !== undefined && !/^[a-z0-9-]+$/.test(appName)) {
+    console.error(chalk.red("Error: App name can only contain lowercase letters, numbers, and dashes."));
+    process.exit(1);
+  }
+
   if (appName === undefined || appName.trim() === "") {
     const response = await prompts({
       type: "text",
