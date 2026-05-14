@@ -20,7 +20,9 @@ export async function initCommand(
   let appName = appNameArg;
 
   if (appName !== undefined && !/^[a-z0-9-]+$/.test(appName)) {
-    console.error(chalk.red("Error: App name can only contain lowercase letters, numbers, and dashes."));
+    console.error(
+      chalk.red("Error: App name can only contain lowercase letters, numbers, and dashes.")
+    );
     process.exit(1);
   }
 
