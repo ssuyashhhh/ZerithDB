@@ -12,6 +12,20 @@ const TEMPLATES: Record<string, string> = {
   blank: "blank",
 };
 
+const MAX_PACKAGE_NAME_LENGTH = 214;
+
+function getAppNameValidationError(value: string): string | null {
+  if (!/^[a-z0-9-]+$/.test(value)) {
+    return "App name can only contain lowercase letters, numbers, and dashes.";
+  }
+
+  if (value.length > MAX_PACKAGE_NAME_LENGTH) {
+    return `App name must be ${MAX_PACKAGE_NAME_LENGTH} characters or fewer.`;
+  }
+
+  return null;
+}
+
 export async function initCommand(
   appNameArg: string | undefined,
   options: { template: string; install: boolean }
@@ -19,11 +33,13 @@ export async function initCommand(
   // ── Step 1: App name ──────────────────────────────────────────────────────
   let appName = appNameArg;
 
-  if (appName !== undefined && !/^[a-z0-9-]+$/.test(appName)) {
-    console.error(
-      chalk.red("Error: App name can only contain lowercase letters, numbers, and dashes.")
-    );
-    process.exit(1);
+  if (appName !== undefined) {
+    const validationError = getAppNameValidationError(appName);
+
+    if (validationError !== null) {
+      console.error(chalk.red(`Error: ${validationError}`));
+      process.exit(1);
+    }
   }
 
   if (appName === undefined || appName.trim() === "") {
@@ -32,8 +48,7 @@ export async function initCommand(
       name: "appName",
       message: "What is your app name?",
       initial: "my-zerithdb-app",
-      validate: (v: string) =>
-        /^[a-z0-9-]+$/.test(v) ? true : "Only lowercase letters, numbers, and dashes",
+      validate: (v: string) => getAppNameValidationError(v) ?? true,
     });
     appName = response.appName as string;
   }
