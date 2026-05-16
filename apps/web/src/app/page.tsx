@@ -109,10 +109,11 @@ export default function LandingPage() {
       <section className="relative pt-32 pb-20 px-6 max-w-6xl mx-auto text-center">
         {/* Background Decorations */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 pointer-events-none overflow-visible">
+          {/* Blurred Background Glows */}
           <motion.div
             animate={{
               y: [0, -20, 0],
-              opacity: [0.3, 0.5, 0.3],
+              opacity: [0.3, 0.4, 0.3],
             }}
             transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
             className="absolute top-20 -left-20 w-64 h-64 bg-blue-100 rounded-full blur-3xl"
@@ -120,10 +121,31 @@ export default function LandingPage() {
           <motion.div
             animate={{
               y: [0, 20, 0],
-              opacity: [0.2, 0.4, 0.2],
+              opacity: [0.2, 0.3, 0.2],
             }}
             transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
             className="absolute top-40 -right-20 w-80 h-80 bg-indigo-100 rounded-full blur-3xl"
+          />
+
+          {/* Structured Decorative Elements */}
+          {/* Left Circle - Improved: smaller, closer, gradient, blurred */}
+          <motion.div
+            animate={{
+              y: [0, -15, 0],
+              rotate: [0, 10, 0],
+            }}
+            transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-1/4 -left-12 w-20 h-20 bg-gradient-to-br from-blue-400/10 to-transparent border border-blue-200/20 rounded-full blur-[1px] backdrop-blur-sm hidden lg:block"
+          />
+
+          {/* Right Tilted Square - Improved: softer border, glass effect, subtle rotation */}
+          <motion.div
+            animate={{
+              y: [0, 15, 0],
+              rotate: [-12, -8, -12],
+            }}
+            transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+            className="absolute top-1/3 -right-16 w-32 h-32 bg-white/5 border border-indigo-200/30 rounded-2xl backdrop-blur-[2px] -rotate-12 hidden lg:block shadow-sm"
           />
         </div>
 
@@ -610,9 +632,23 @@ export default function LandingPage() {
         className="py-32 px-6 bg-white text-center relative overflow-hidden"
       >
         {/* Abstract shapes for CTA */}
-        <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-10">
-          <div className="absolute top-10 left-10 w-32 h-32 border-2 border-black rounded-full rotate-45 animate-float" />
-          <div className="absolute bottom-10 right-10 w-48 h-48 border-2 border-black rounded-xl -rotate-12 animate-float-delayed" />
+        <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+          <motion.div
+            animate={{
+              y: [0, -10, 0],
+              rotate: [45, 55, 45],
+            }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-20 left-[15%] w-24 h-24 bg-gradient-to-tr from-blue-500/5 to-indigo-500/10 border border-blue-200/20 rounded-full blur-[1px] backdrop-blur-sm hidden md:block"
+          />
+          <motion.div
+            animate={{
+              y: [0, 15, 0],
+              rotate: [-12, -18, -12],
+            }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            className="absolute bottom-20 right-[15%] w-40 h-40 bg-white/5 border border-gray-200/30 rounded-3xl backdrop-blur-[2px] -rotate-12 hidden md:block shadow-sm"
+          />
         </div>
 
         <motion.div
