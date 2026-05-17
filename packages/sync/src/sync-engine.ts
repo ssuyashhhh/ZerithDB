@@ -250,6 +250,7 @@ export class SyncEngine extends EventEmitter<SyncEvents> {
 
   private flushUpdates(): void {
     this.syncTimer = null;
+    this.syncTimerIsRaf = false;
     for (const [collectionName, updates] of this.pendingUpdates.entries()) {
       // Y.mergeUpdates merges all updates into a single efficient payload
       const merged = Y.mergeUpdates(updates);
