@@ -409,10 +409,10 @@ export default function LandingPage() {
           viewport={{ once: true }}
           className="container mx-auto px-6 flex flex-wrap justify-center gap-8 md:gap-16 opacity-60 grayscale"
         >
-          <div className="flex items-center gap-2 font-semibold text-lg text-gray-800">
+          <div className="flex items-center gap-2 font-semibold text-lg text-foreground">
             <Terminal className="w-5 h-5" /> Open Source
           </div>
-          <div className="flex items-center gap-2 font-semibold text-lg text-gray-800">
+          <div className="flex items-center gap-2 font-semibold text-lg text-foreground">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -430,7 +430,7 @@ export default function LandingPage() {
             </svg>{" "}
             Built for Developers
           </div>
-          <div className="flex items-center gap-2 font-semibold text-lg text-gray-800">
+          <div className="flex items-center gap-2 font-semibold text-lg text-foreground">
             <Zap className="w-5 h-5" /> Zero Latency
           </div>
         </motion.div>
@@ -903,6 +903,7 @@ export default function LandingPage() {
             <Link href="/docs" className="hover:text-foreground transition-colors">
               Documentation
             </Link>
+
             <a
               href="https://github.com/Zerith-Labs/ZerithDB"
               target="_blank"
@@ -911,6 +912,7 @@ export default function LandingPage() {
             >
               GitHub
             </a>
+
             <Link
               href="/"
               onClick={() => toast("Blog will be available soon")}
@@ -918,6 +920,7 @@ export default function LandingPage() {
             >
               Blog
             </Link>
+
             <Link
               href="/"
               onClick={() => toast("Pricing will be available soon")}
@@ -931,7 +934,6 @@ export default function LandingPage() {
               rel="noopener noreferrer"
               className="hover:text-foreground transition-colors"
             >
-
               Discord
             </a>
           </div>
