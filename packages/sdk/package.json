@@ -33,6 +33,7 @@
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --dts --treeshake",
     "dev": "tsup src/index.ts --format esm,cjs --dts --watch",
+    "test": "vitest run --root ../.. --environment node packages/sdk/src/video-conference.test.ts",
     "typecheck": "tsc --noEmit",
     "test": "vitest run --passWithNoTests",
     "clean": "rimraf dist"
