@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Zap, BookOpen, ArrowLeft } from "lucide-react";
+import { Zap, BookOpen } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function BlogPage() {

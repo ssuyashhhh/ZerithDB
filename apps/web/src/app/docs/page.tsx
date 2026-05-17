@@ -555,11 +555,7 @@ export default function DocsPage() {
     <div className="min-h-screen bg-background text-foreground flex flex-col font-sans transition-colors duration-300">
       <header className="bg-background border-b border-border px-6 h-16 flex items-center justify-between sticky top-0 z-50 transition-colors duration-300">
         <div className="flex items-center gap-4">
-
-          <button
-            className="lg:hidden text-foreground"
-            onClick={() => setMobileSidebarOpen(true)}
-          >
+          <button className="lg:hidden text-foreground" onClick={() => setMobileSidebarOpen(true)}>
             <Menu className="w-6 h-6" />
           </button>
           <Link
@@ -613,8 +609,9 @@ export default function DocsPage() {
 
       <div className="flex-1 flex max-w-[1400px] mx-auto w-full">
         <aside
-          className={`fixed top-0 left-0 h-full w-72 bg-background border-r border-border z-50 transform transition-transform duration-300 lg:hidden ${mobileSidebarOpen ? "translate-x-0" : "-translate-x-full"
-            }`}
+          className={`fixed top-0 left-0 h-full w-72 bg-background border-r border-border z-50 transform transition-transform duration-300 lg:hidden ${
+            mobileSidebarOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
         >
           <div className="flex items-center justify-between p-4 border-b border-border">
             <h2 className="font-semibold text-foreground">Documentation</h2>

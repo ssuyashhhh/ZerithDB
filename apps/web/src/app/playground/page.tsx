@@ -13,6 +13,7 @@ import {
   Copy,
   Check,
 } from "lucide-react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 type ClientId = "A" | "B";
 
@@ -410,7 +411,11 @@ export default function PlaygroundPage() {
                 : "bg-red-500/10 text-red-700 border-red-500/20 hover:bg-red-500/20"
             }`}
           >
-            {isOnline ? <Wifi className="w-4 h-4 shrink-0" /> : <WifiOff className="w-4 h-4 shrink-0" />}
+            {isOnline ? (
+              <Wifi className="w-4 h-4 shrink-0" />
+            ) : (
+              <WifiOff className="w-4 h-4 shrink-0" />
+            )}
             <span className="hidden sm:inline">{isOnline ? "Online" : "Offline"}</span>
             <span className="sm:hidden">{isOnline ? "Online" : "Offline"}</span>
           </button>
